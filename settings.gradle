@@ -1,0 +1,3 @@
+include ':handle'
+include ':app'
+rootProject.name = "Android Study"
