@@ -20,7 +20,63 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <Button
+            android:id="@+id/connect_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connect"
+            android:onClick="onClick" />
+
+        <Button
+            android:id="@+id/disconnect_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="disconnect"
+            android:onClick="onClick"/>
+
+        <Button
+            android:id="@+id/is_connect_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="isConnect"
+            android:onClick="onClick"/>
+
+        <Button
+            android:id="@+id/send_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send_message"
+            android:onClick="onClick" />
+
+        <Button
+            android:id="@+id/registerMessageListener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="registerMessageListener"
+            android:onClick="onClick"/>
+
+        <Button
+            android:id="@+id/unRegisterMessageListener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="unRegisterMessageListener"
+            android:onClick="onClick"/>
+
+        <Button
+            android:id="@+id/messenger_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send_by_messenger"
+            android:onClick="onClick" />
+
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
