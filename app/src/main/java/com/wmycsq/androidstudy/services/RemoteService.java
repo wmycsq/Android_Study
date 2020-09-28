@@ -58,6 +58,9 @@ public class RemoteService extends Service {
 
 //    private List<IMessageReceiveListener> messageReceiveListenerList = new ArrayList<>();
 
+    //使用系统的RemoteCallbackList 可以准确的管理MessageReceive的对象，
+    // 不能使用list，
+    // 因为binder在序列化和反序列化的时候不能准确找到
     private RemoteCallbackList<IMessageReceiveListener> messageReceiveListenerList = new RemoteCallbackList<>();
 
     private ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
@@ -76,6 +79,7 @@ public class RemoteService extends Service {
                     }
                 });
 
+                //模拟定时发送消息给主进程
                 scheduledFuture = scheduledThreadPoolExecutor.scheduleAtFixedRate(new Runnable() {
                     @Override
                     public void run() {
