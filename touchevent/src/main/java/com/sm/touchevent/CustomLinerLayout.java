@@ -56,12 +56,12 @@ public class CustomLinerLayout extends LinearLayout {
     public boolean onTouchEvent(MotionEvent event) {
         Log.d("test", "onTouchEvent --> " + TouchActionHelper.transformAction(event.getAction())
                 + " and name is " + name);
-//        if (name.equals("group1")) {
-//            return super.onTouchEvent(event);
-//        } else {
-//            return false;
-//        }
-        return super.onTouchEvent(event);
+        if (name.equals("group1")) {
+            return super.onTouchEvent(event);
+        } else {
+            return true;
+        }
+//        return super.onTouchEvent(event);
     }
 
 }

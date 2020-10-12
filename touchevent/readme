@@ -1,0 +1,22 @@
+Action Down:
+    Activity，viewGroup，view 的 dispatchTouchEvent()：
+        1. return true: 直接消费此事件， 不会再进行任何传递
+        2. return false: 执行父view的onTouchEvent(), 然后接着向上传递
+        3. super:   执行到最下面的view, 然后在调用view的onTouchEvent()，随后向上传递。
+
+    ViewGroup onInterceptTouchEvent()：
+        1. return true: 执行父view的onTouchEvent(), 然后接着向上传递
+        2. return false 和 super:  继续向下执行dispatchTouchEvent()。
+
+    Activity，viewGroup，view 的 onTouchEvent()：
+        1. return true: 消费事件，不会再接着向上传递
+        2. return false 和 super:  继续向上传递 onTouchEvent();
+
+Action up:
+    Activity，viewGroup，view 的 dispatchTouchEvent()：
+    ViewGroup onInterceptTouchEvent()：
+        分发的流程和Action Down一样。
+
+    Activity，viewGroup，view 的 onTouchEvent()：
+        Action Down return true后， Action Up 的流程指挥走到和return true 相应的dispatchTouchEvent(),
+        然后直接执行onTouchEvent()， dispatchTouchEvent()不会再接着往下分发了。
